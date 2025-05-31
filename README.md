@@ -21,28 +21,33 @@ ai助手接入deepseek api可以在bert.html的245行添加您的apikey密钥
 网站采用传参方式，在各个界面自动填入bert模型预测的科室
 
 Vue版本运行步骤
-启动API服务：
 
-bash
+```bash
+#启动API服务：
 uvicorn api_support:app --reload
+```
 进入前端目录：
 
-bash
+```bash
 cd \医院管理系统\HospitalVue
-运行前端：
+#运行前端：
 
-bash
 npm run serve
-若报错则使用：
+node server.js
+```
+```bash
+#若报错则使用：
 
-bash
 set NODE_OPTIONS=--openssl-legacy-provider
 npm run serve
-启动后端：
+```
 
-bash
+```bash
+#启动后端：
+
 cd \医院管理系统\medical-master
 mvn spring-boot:run
+```
 测试账号
 角色	账号	密码
 患者	1534590	password
