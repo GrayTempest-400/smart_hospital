@@ -49,10 +49,10 @@ cd \医院管理系统\medical-master
 mvn spring-boot:run
 ```
 测试账号
-角色	账号	密码
-患者	1534590	password
-管理员	201701	admin
-医生	201900	1234
+角色|	账号|	密码
+患者|	1534590	|password
+管理员|	201701|	admin
+医生|	201900	|1234
 
 具体看数据库文件.sql
 
@@ -102,5 +102,30 @@ AOA.py为定位展示界面
 imu pdr行人行位推算定位为江科的开源代码，硬件为stm32103c8t6+mpu6050+oled显示屏
 
 
-
-优化md文件外观
+文件格式：
+smart_hospital/
+├──bert_pretrain
+├─Data
+├─img
+└── location/             # 定位模块
+    ├── AOA.py            # UWB定位
+    └── beacon/           # 蓝牙信标
+└── maptool
+    ├── map_web.py            # 地图工具
+    ├──static
+    ├──templates
+    ├──map.png
+    ├──YAML__mapfind.py
+    ├──yaml_mapcreat.py
+├─pytorch_pretrained
+├─run_data
+├─static
+├─templates
+├─web.py
+##以上为html+py页面与地图工具，下面是vue界面
+├─医院管理系统
+└── HospitalVue/# Vue前端
+    ├──server.js
+├── medical-master/       # SpringBoot后端
+├── api_support.py        # BERT服务
+只标注了下载后格式容易乱的文件，其他的不变
