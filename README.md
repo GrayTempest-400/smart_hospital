@@ -6,9 +6,8 @@
 项目演示  
 https://www.bilibili.com/video/BV1eK7AzoEiu/  
 
-
 项目栈:    
-`python` `bert ` `vue` `js` `stm32嵌入式`   
+`python` `bert ` `vue` `js` `stm32嵌入式`  
 by sss.Beyonder,monooo,QYSN  
 #前端部分
 vue版本文件多，只能传网盘    
