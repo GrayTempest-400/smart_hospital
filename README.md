@@ -1,5 +1,11 @@
 # smart_hospital
-智能医院系统 by sss.Beyonder,monooo,QYSN
+
+#项目介绍  
+智能医院系统
+本项目为参加科创项目比赛结束后的开源  
+项目栈:  
+`python` `bert ` `vue` `js` `stm32嵌入式` 
+by sss.Beyonder,monooo,QYSN
 #前端部分
 vue版本文件多，只能传网盘  
 医院管理系统.zip  
