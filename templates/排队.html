@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>排队叫号系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <h2>排队功能</h2>
+    <select id="queue-department-select">
+        <option value="儿科">儿科</option>
+        <option value="耳鼻咽喉科">耳鼻咽喉科</option>
+        <option value="风湿免疫科">风湿免疫科</option>
+        <option value="妇产科">妇产科</option>
+        <option value="感染科 传染科">感染科 传染科</option>
+        <option value="骨科">骨科</option>
+        <option value="呼吸内科">呼吸内科</option>
+        <option value="乳腺外科">乳腺外科</option>
+        <option value="精神心理科">精神心理科</option>
+        <option value="口腔科">口腔科</option>
+        <option value="泌尿外科">泌尿外科</option>
+        <option value="内分泌科">内分泌科</option>
+        <option value="皮肤科">皮肤科</option>
+        <option value="普通内科">普通内科</option>
+        <option value="普外科">普外科</option>
+        <option value="神经内科">神经内科</option>
+        <option value="神经外科">神经外科</option>
+        <option value="疼痛科 麻醉科">疼痛科 麻醉科</option>
+        <option value="消化内科">消化内科</option>
+        <option value="心血管内科">心血管内科</option>
+        <option value="性病科">性病科</option>
+        <option value="血液科">血液科</option>
+        <option value="眼科">眼科</option>
+        <option value="疫苗科">疫苗科</option>
+        <option value="影像检验科">影像检验科</option>
+        <option value="肿瘤科">肿瘤科</option>
+        <option value="肛肠外科">肛肠外科</option>
+        <option value="中医科">中医科</option>
+        <option value="胸外科">胸外科</option>
+        <option value="烧伤科">烧伤科</option>
+        <option value="整形科">整形科</option>
+        <option value="肝胆外科">肝胆外科</option>
+        <option value="急诊科">急诊科</option>
+        <option value="头颈外科">头颈外科</option>
+    </select>
+    <input type="text" id="queue-patient-name" placeholder="患者姓名">
+    <button id="queue-button">排队</button>
+
+    <h3>科室排队信息</h3>
+    <table id="queue-table">
+        <thead>
+            <tr>
+                <th>科室</th>
+                <th>排队人数</th>
+                <th>预计排队时间（秒）</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <h3>详细排队信息</h3>
+    <table id="detailed-queue-table">
+        <thead>
+            <tr>
+                <th>科室</th>
+                <th>患者姓名</th>
+                <th>排队时间（秒）</th>
+                <th>加入时间</th>
+                <th>预计排队时间（秒）</th>
+                <th>结束时间</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <h2>搜索功能</h2>
+    <input type="text" id="search-patient-name" placeholder="患者姓名">
+    <button id="search-button">搜索</button>
+
+    <h2>叫号记录</h2>
+    <table id="called-table">
+        <thead>
+            <tr>
+                <th>叫号时间</th>
+                <th>科室</th>
+                <th>患者姓名</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <section class="info">
+        <h2>就诊须知</h2>
+        <p>请携带有效身份证件，按时到达医院，遵守就诊流程。</p>
+    </section>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

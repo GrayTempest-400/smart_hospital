@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医院地图</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='寻路.css') }}">
+</head>
+<body>
+    <h1>选择科室</h1>
+    <select id="department-select">
+        <option value="">请选择科室</option>
+        <option value="儿科">儿科</option>
+        <option value="耳鼻咽喉科">耳鼻咽喉科</option>
+        <option value="风湿免疫科">风湿免疫科</option>
+        <option value="妇产科">妇产科</option>
+        <option value="感染科">感染科</option>
+        <option value="骨科">骨科</option>
+        <option value="呼吸内科">呼吸内科</option>
+        <option value="乳腺外科">乳腺外科</option>
+        <option value="精神心理科">精神心理科</option>
+        <option value="口腔科">口腔科</option>
+        <option value="泌尿外科">泌尿外科</option>
+        <option value="内分泌科">内分泌科</option>
+        <option value="皮肤科">皮肤科</option>
+        <option value="普通内科">普通内科</option>
+        <option value="普外科">普外科</option>
+        <option value="神经内科">神经内科</option>
+        <option value="神经外科">神经外科</option>
+        <option value="疼痛科 麻醉科">疼痛科 麻醉科</option>
+        <option value="消化内科">消化内科</option>
+        <option value="心血管内科">心血管内科</option>
+        <option value="性病科">性病科</option>
+        <option value="血液科">血液科</option>
+        <option value="眼科">眼科</option>
+        <option value="疫苗科">疫苗科</option>
+        <option value="影像检验科">影像检验科</option>
+        <option value="肿瘤科">肿瘤科</option>
+        <option value="肛肠外科">肛肠外科</option>
+        <option value="中医科">中医科</option>
+        <option value="胸外科">胸外科</option>
+        <option value="烧伤科">烧伤科</option>
+        <option value="整形科">整形科</option>
+        <option value="肝胆外科">肝胆外科</option>
+        <option value="急诊科">急诊科</option>
+        <option value="头颈外科">头颈外科</option>
+    </select>
+
+    <button id="confirm-button">确认</button>
+
+    <div id="department-image">
+        <img id="department-pic" src="" alt="路径显示" style="display:none;">
+    </div>
+
+    <div id="department-room">
+        <p>科室房间号: <span id="room-number"></span></p>
+    </div>
+
+    <script src="static/寻路.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const departmentSelect = document.getElementById('department-select');
+            const confirmButton = document.getElementById('confirm-button');
+            const departmentPic = document.getElementById('department-pic');
+            const roomNumber = document.getElementById('room-number');
+
+            // 科室和房间号的对应关系
+            const departmentRooms = {
+                "儿科": "101室",
+                "耳鼻咽喉科": "102室",
+                "风湿免疫科": "103室",
+                "妇产科": "104室",
+                "感染科": "105室",
+                "骨科": "106室",
+                "呼吸内科": "107室",
+                "乳腺外科": "108室",
+                "精神心理科": "109室",
+                "口腔科": "110室",
+                "泌尿外科": "111室",
+                "内分泌科": "112室",
+                "皮肤科": "113室",
+                "普通内科": "114室",
+                "普外科": "115室",
+                "神经内科": "116室",
+                "神经外科": "117室",
+                "疼痛科 麻醉科": "118室",
+                "消化内科": "119室",
+                "心血管内科": "120室",
+                "性病科": "121室",
+                "血液科": "122室",
+                "眼科": "123室",
+                "疫苗科": "124室",
+                "影像检验科": "125室",
+                "肿瘤科": "126室",
+                "肛肠外科": "127室",
+                "中医科": "201室",
+                "胸外科": "202室",
+                "烧伤科": "203室",
+                "整形科": "204室",
+                "肝胆外科": "205室",
+                "急诊科": "206室",
+                "头颈外科": "207室"
+            };
+
+            // 设置科室选择框的默认值
+            const urlParams = new URLSearchParams(window.location.search);
+            const department = urlParams.get('department');
+            if (department) {
+                departmentSelect.value = department;
+            }
+
+            // 处理点击确认按钮
+            confirmButton.addEventListener('click', () => {
+                const selectedDepartment = departmentSelect.value;
+                if (selectedDepartment) {
+                    // 显示图像（沿用旧版的图像显示逻辑）
+                    const imagePath = `static/img/${selectedDepartment}.png`; // 假设图片命名为科室名称
+                    departmentPic.src = imagePath;
+                    departmentPic.style.display = 'block'; // 显示图片
+
+                    // 更新房间号
+                    const room = departmentRooms[selectedDepartment];
+                    roomNumber.textContent = room; // 更新显示的房间号
+                } else {
+                    alert('请选择一个科室');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
