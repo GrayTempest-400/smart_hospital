@@ -26,7 +26,7 @@ Vue版本运行步骤
 #启动API服务：
 uvicorn api_support:app --reload
 ```
-进入前端目录：
+启动前端
 
 ```bash
 cd \医院管理系统\HospitalVue
@@ -42,9 +42,9 @@ set NODE_OPTIONS=--openssl-legacy-provider
 npm run serve
 ```
 
-```bash
-#启动后端：
 
+启动后端：
+```bash
 cd \医院管理系统\medical-master
 mvn spring-boot:run
 ```
