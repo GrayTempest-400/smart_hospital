@@ -61,11 +61,27 @@ ai助手接入deepseek api可以在bert.html的245行添加您的apikey密钥
 ![image](https://github.com/user-attachments/assets/4dc81be7-aafe-4b8a-80a3-2f084503d92c)
 ![image](https://github.com/user-attachments/assets/d99f614e-5808-4e0e-86b5-f686743b3aef)
 其他界面
-医生
+
+医生：
 ![image](https://github.com/user-attachments/assets/f1269f75-45a4-42db-8e0e-9c14c0fe6c19)
 ![image](https://github.com/user-attachments/assets/f32e1101-3aa9-4d57-85e5-3edc8b469574)
 
+地图创建工具maptool界面
+![image](https://github.com/user-attachments/assets/fecc3198-88f1-4692-9c04-cbdf60bce41c)
+map_web.py
+png转栅格化地图，基于opencv图像识别，yml格式栅格地图输出0表示通路1表示障碍
+png图像需黑白化，黑色当障碍白当通路
+在地图上用绿色点一个点代表起点，红色点一个点代表终点，具体看源代码
+![path_image](https://github.com/user-attachments/assets/eb359dbf-e44f-4a2c-8862-bf3860f4dd37)
+![image](https://github.com/user-attachments/assets/00b4e0fd-d60f-48c0-b3e5-30bb8c6c79d5)
 
+
+室内定位看location文件夹
+AOA.py为定位展示界面
+硬件要购买爱蓝信的uwbAOA硬件
+![image](https://github.com/user-attachments/assets/81a426f3-03cf-479c-a2b7-f3763f3df25d)
+其他的beacon定位未进行测试，不知道能不能用
+imu pdr行人行位推算定位为江科的开源代码，硬件为stm32103c8t6+mpu6050+oled显示屏
 
 
 
