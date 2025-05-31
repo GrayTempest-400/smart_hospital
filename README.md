@@ -65,7 +65,6 @@ mvn spring-boot:run
 科室推荐
 ![image](https://github.com/user-attachments/assets/f9773ccb-135b-4798-b89d-a8c18f3f9782)
 挂号
-其他不重要的省略
 管理员：
 ![image](https://github.com/user-attachments/assets/2a1becb1-9cd9-43f8-9ae9-2ab7c62dc1c2)
 首页
@@ -73,17 +72,11 @@ mvn spring-boot:run
 数据分析
 ![image](https://github.com/user-attachments/assets/12eff1d4-41c5-4556-b7c2-a24aff49f518)
 ![image](https://github.com/user-attachments/assets/c8e1e1b4-9cf7-4a26-9126-ee59784cd35b)
-![image](https://github.com/user-attachments/assets/20a3c039-0efc-4c03-b37f-50b517fe5a2e)
-![image](https://github.com/user-attachments/assets/0f81c63f-7433-48a4-b466-7dc1122036ae)
-![image](https://github.com/user-attachments/assets/3494fa9f-54b0-4269-a5cb-83929db032be)
-![image](https://github.com/user-attachments/assets/4dc81be7-aafe-4b8a-80a3-2f084503d92c)
-![image](https://github.com/user-attachments/assets/d99f614e-5808-4e0e-86b5-f686743b3aef)
-其他界面
 
 医生：
 ![image](https://github.com/user-attachments/assets/f1269f75-45a4-42db-8e0e-9c14c0fe6c19)
 ![image](https://github.com/user-attachments/assets/f32e1101-3aa9-4d57-85e5-3edc8b469574)
-
+其他不重要的省略
 地图创建工具maptool界面
 ![image](https://github.com/user-attachments/assets/fecc3198-88f1-4692-9c04-cbdf60bce41c)
 map_web.py
@@ -103,31 +96,31 @@ imu pdr行人行位推算定位为江科的开源代码，硬件为stm32103c8t6+
 
 
 文件格式：
-smart_hospital/
-├── bert_pretrain/ # BERT预训练模型
-├── Data/ # 数据存储
-├── img/ # 系统图片资源
-├── location/ # 定位模块
-│ ├── AOA.py # UWB定位核心代码
-│ └── beacon/ # 蓝牙信标定位
-├── maptool/ # 地图工具包
-│ ├── map_web.py # 主地图工具
-│ ├── static/ # 静态资源
-│ ├── templates/ # 网页模板
-│ ├── map.png # 示例地图
-│ ├── YAML__mapfind.py # 地图路径查找
-│ └── yaml_mapcreat.py # YAML地图生成器
-├── pytorch_pretrained/ # PyTorch预训练模型
-├── run_data/ # 运行时数据
-├── static/ # 静态资源
-├── templates/ # 网页模板
-├── web.py # Flask主入口
-│
+`smart_hospital/`
+`├── bert_pretrain/ # BERT预训练模型`
+`├── Data/ # 数据存储`
+`├── img/ # 系统图片资源`
+`├── location/ # 定位模块`
+`│ ├── AOA.py # UWB定位核心代码`
+`│ └── beacon/ # 蓝牙信标定位`
+`├── maptool/ # 地图工具包`
+`│ ├── map_web.py # 主地图工具`
+`│ ├── static/ # 静态资源`
+`│ ├── templates/ # 网页模板`
+`│ ├── map.png # 示例地图`
+`│ ├── YAML__mapfind.py # 地图路径查找`
+`│ └── yaml_mapcreat.py # YAML地图生成器`
+`├── pytorch_pretrained/ # PyTorch预训练模型`
+`├── run_data/ # 运行时数据`
+`├── static/ # 静态资源`
+`├── templates/ # 网页模板`
+`├── web.py # Flask主入口`
+`│`
 
-🌐 Vue版本独立目录
-├── 医院管理系统/ # 医院管理系统主目录
-│ ├── HospitalVue/ # Vue前端
-│ │ └── server.js # 开发服务器配置
-│ ├── medical-master/ # SpringBoot后端
-│ └── api_support.py # BERT微服务
+`🌐 Vue版本独立目录`
+`├── 医院管理系统/ # 医院管理系统主目录`
+`│ ├── HospitalVue/ # Vue前端`
+`│ │ └── server.js # 开发服务器配置`
+`│ ├── medical-master/ # SpringBoot后端`
+`│ └── api_support.py # BERT微服务`
 只标注了下载后格式容易乱的文件，其他的不变
