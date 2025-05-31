@@ -20,23 +20,36 @@ ai助手接入deepseek api可以在bert.html的245行添加您的apikey密钥
 
 网站采用传参方式，在各个界面自动填入bert模型预测的科室
 
-#vue版本
+Vue版本运行步骤
+启动API服务：
 
-要运行api_support.py才能运行bert科室推荐的功能
-输入uvicorn api_support:app --reload运行api_support.py
-进入\医院管理系统\HospitalVue
-输入npm run serve
-若报错就输入set NODE_OPTIONS=--openssl-legacy-provider后再运行npm run serve
-进入\医院管理系统\medical-master
-运行mvn spring-boot:run
+bash
+uvicorn api_support:app --reload
+进入前端目录：
 
-患者账号：1534590
-密码：password
-管理员账号：201701
-密码：admin
-医生账号：201900
-密码：1234
-具体看 数据库文件.sql
+bash
+cd \医院管理系统\HospitalVue
+运行前端：
+
+bash
+npm run serve
+若报错则使用：
+
+bash
+set NODE_OPTIONS=--openssl-legacy-provider
+npm run serve
+启动后端：
+
+bash
+cd \医院管理系统\medical-master
+mvn spring-boot:run
+测试账号
+角色	账号	密码
+患者	1534590	password
+管理员	201701	admin
+医生	201900	1234
+
+具体看数据库文件.sql
 
 患者：
 ![image](https://github.com/user-attachments/assets/85fa91c5-be4d-4e6f-8372-b87e57322975)
@@ -85,3 +98,4 @@ imu pdr行人行位推算定位为江科的开源代码，硬件为stm32103c8t6+
 
 
 
+优化md文件外观
