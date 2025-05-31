@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>寻路导航</title>
+  <!-- 引入 Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+    }
+    .sidebar {
+      background-color: #343a40;
+      min-height: 100vh;
+      position: fixed;
+      width: 250px;
+      top: 0;
+      left: 0;
+      padding-top: 60px;
+    }
+    .sidebar a {
+      color: white;
+      padding: 15px;
+      display: block;
+      text-decoration: none;
+      font-size: 1.1em;
+    }
+    .sidebar a:hover {
+      background-color: #007bff;
+      text-decoration: none;
+    }
+    .content {
+      margin-left: 250px;
+      padding: 20px;
+      margin-top: 60px;
+    }
+    .navbar {
+      background-color: #343a40;
+      color: white;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      z-index: 1;
+      top: 0;
+    }
+    .log-window {
+      background-color: #343a40;
+      color: #fff;
+      padding: 10px;
+      height: 300px;
+      overflow-y: auto;
+      margin-top: 20px;
+    }
+    .log-window pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部导航栏 -->
+  <div class="navbar">
+    <h4>寻路导航</h4>
+  </div>
+
+  <!-- 侧边栏 -->
+  <div class="sidebar">
+    <a href="#upload">上传文件</a>
+    <a href="#logs">查看日志</a>
+    <a href="#path">查看路径</a>
+    <a href="#status">系统状态</a>
+  </div>
+
+  <!-- 主内容区域 -->
+  <div class="content">
+    <div class="container">
+      <!-- 上传文件部分 -->
+      <h2 id="upload">上传文件</h2>
+      <form id="uploadForm" method="post" enctype="multipart/form-data" action="{{ url_for('upload_file') }}">
+        <div class="mb-3">
+          <label for="fileInput" class="form-label">选择yaml或者图片文件(图片文件须500x500左右大小):</label>
+          <input class="form-control" type="file" name="file" id="fileInput">
+        </div>
+        <button type="submit" class="btn btn-primary">上传</button>
+      </form>
+
+      <!-- 显示前端的错误消息 -->
+      <div id="fileError" class="alert alert-danger mt-3" style="display:none;">
+        请先选择文件再上传！
+      </div>
+
+      <!-- 日志部分 -->
+      <h2 id="logs" class="mt-5">日志</h2>
+      <div class="log-window">
+        <pre>
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <span class="{{ category }}">{{ message }}</span>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+        </pre>
+      </div>
+
+      <h2 id="path" class="mt-5">查看路径</h2>
+      <div class="alert alert-secondary" role="alert">
+        这里是路径信息展示部分
+        <img id="pathImage" src="" alt="路径图像" style="display: none; margin-top: 20px; max-width: 100%;">
+      </div>
+
+      <!-- 新增“生成路径”按钮 -->
+      <button id="generatePathBtn" class="btn btn-success mt-3">生成路径</button>
+
+      <!-- 系统状态部分 -->
+      <h2 id="status" class="mt-5">系统状态</h2>
+      <div class="alert alert-info" role="alert">
+        系统运行正常
+      </div>
+    </div>
+  </div>
+
+  <!-- 引入 Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // 点击生成路径按钮时的处理逻辑
+    const generatePathBtn = document.getElementById('generatePathBtn');
+    const pathImage = document.getElementById('pathImage');
+
+    generatePathBtn.addEventListener('click', function() {
+      // 禁用生成路径按钮，防止重复点击
+      generatePathBtn.disabled = true;
+
+      fetch('/generate_path', {
+        method: 'POST'
+      }).then(response => response.json())
+        .then(data => {
+          console.log('生成的路径:', data.path_image_url);
+          alert('路径生成成功: ' + data.path_image_url);
+
+          // 显示生成的路径图像
+          pathImage.src = data.path_image_url;
+          pathImage.style.display = 'block';
+
+          // 图片加载成功后，启用按钮
+          pathImage.onload = function() {
+            generatePathBtn.disabled = false;
+          };
+        })
+        .catch(error => {
+          console.error('生成路径时出错:', error);
+
+          // 如果发生错误，重新启用按钮
+          generatePathBtn.disabled = false;
+        });
+    });
+  </script>
+
+</body>
+</html>

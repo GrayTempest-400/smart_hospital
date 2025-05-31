@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>排队系统</title>
+</head>
+<body>
+    <h1>综合科室排队系统</h1>
+
+    <h2>选择科室</h2>
+    <form method="POST">
+        <label for="window">选择科室：</label>
+        <select name="window" id="window">
+            <option value="1" {% if selected_window == '1' %}selected{% endif %}>儿科</option>
+            <option value="2" {% if selected_window == '2' %}selected{% endif %}>传染科</option>
+            <option value="3" {% if selected_window == '3' %}selected{% endif %}>神经科</option>
+        </select>
+        <br><br>
+
+        <label for="name">姓名：</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <button type="submit" name="action" value="取号">取号</button>
+        <button type="submit" name="action" value="叫号">叫号</button>
+        <button type="submit" name="action" value="查询位置">查询位置</button>
+        <button type="submit" name="action" value="查询等待时间">查询等待时间</button>
+    </form>
+
+    <h2>当前队列</h2>
+    <ul>
+        {% for person in queue %}
+        <li>{{ person }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if message %}
+    <h3>{{ message }}</h3>
+    {% endif %}
+</body>
+</html>
