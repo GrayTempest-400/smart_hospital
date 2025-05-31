@@ -3,6 +3,10 @@
 #项目介绍  
 智能医院系统  
 本项目为参加科创项目比赛结束后的开源  
+项目演示  
+https://www.bilibili.com/video/BV1eK7AzoEiu/  
+
+
 项目栈:    
 `python` `bert ` `vue` `js` `stm32嵌入式`   
 by sss.Beyonder,monooo,QYSN  
