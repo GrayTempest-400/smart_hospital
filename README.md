@@ -5,10 +5,9 @@
 本项目为参加科创项目比赛结束后的开源  
 项目演示  
 https://www.bilibili.com/video/BV1eK7AzoEiu/  
-
 项目栈:    
-`python` `bert ` `vue` `js` `stm32嵌入式`  
-by sss.Beyonder,monooo,QYSN  
+python,bert,vue,js,stm32嵌入式开发
+           made by sss.Beyonder,monooo,QYSN  
 #前端部分
 vue版本文件多，只能传网盘    
 医院管理系统.zip    
